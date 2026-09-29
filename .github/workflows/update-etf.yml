@@ -4,7 +4,12 @@ on:
   workflow_dispatch:
 
   schedule:
+    # 장중: 한국시간 평일 09:00~15:30, 5분 간격
     - cron: "*/5 9-15 * * 1-5"
+      timezone: "Asia/Seoul"
+
+    # 장외: 평일 16:00에 한 번 실행해서 마감가격 반영
+    - cron: "0 16 * * 1-5"
       timezone: "Asia/Seoul"
 
 jobs:
